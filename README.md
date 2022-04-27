@@ -96,6 +96,8 @@ You can test a large portion of code but:
 
 + So it's like the `__init__`-function just for test classes?
   No!
-
 + Sometimes the tests can mutate the precondition objects (like the fetcher)
   to assure they are the same for every test, they are so to say reset before every test
++ Want to mock it, in order to isolate the test! We dont want to test the
+  fetcher, but the parser. So, basically cutting out all what we do not want
+  to test at this moment.
