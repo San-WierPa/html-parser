@@ -1,6 +1,6 @@
 # Test Automation with  Python
 
-
+<!--
 ## Agenda Day 1 (26.04.2022)
 
 
@@ -32,7 +32,7 @@
 -->
 
 
-<!--
+<!-
 ## Further Readings
 
 - [Workshop Materials](https://gitlab.com/hifis/hifis-workshops/test-automation-with-python/workshop-materials)
@@ -44,13 +44,14 @@
 - [Real Python, "Understanding the Python Mock Object Library"](https://realpython.com/python-mock-library/) for more information about the `unittest.mock`.
 -->
 
+<!--
 ## Organizational Details
 
 ### Before the workshop
 
 - Please fill out the [pre-workshop survey](https://survey.pt-dlr.de/index.php?r=survey/index&sid=1001&lang=en) to help us preparing the workshop.
 
-
+<!--
 - Please check your technical setup:
     
     - [ ] Please make sure that you installed Required Software Tools (see below).
@@ -61,7 +62,7 @@
     - For further information, please see: [System Requirements](https://support.gather.town/help/system-specifications), [Getting Started Guide](https://support.gather.town/help/movement-and-basics), [Audio and Video Troubleshooting](https://support.gather.town/help/av-troubleshooting)
         
     - [ ] At the end of the workshop, we would like to give you explicit time for your special testing topics. If you want to discuss a topic, please send us a short description of it in advance!
-
+-->
 
 #### Required Software Tools
 

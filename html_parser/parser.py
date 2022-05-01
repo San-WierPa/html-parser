@@ -1,13 +1,9 @@
 """
 Provides functionality to parse HML docuements.
-
-@author: schlauch
 """
 
 
 import bs4
-
-from html_parser.fetcher import FetcherError
 
 
 class HtmlParser:
@@ -16,12 +12,13 @@ class HtmlParser:
     Currently, only the extraction of URLs is supported.
     """
 
-    def __init__(self, fetcher):
+    def __init__(self, html_document):
         """
-        :param fetcher: Helps to retrieve the content that needs to be parsed.
-        :type fetcher: `Fetcher<hml_parser.fetcher.Fetcher>`
+        :param html_document: HTML content to be parsed. Decoding is handled automatically.
+        :type html_document: str or bytes
         """
-        self._fetcher = fetcher
+
+        self._html_document = html_document
 
     def extract_links(self):
         """Extracts links from the HTMl document retrieved via the fetcher.
@@ -31,23 +28,17 @@ class HtmlParser:
         :return: A list of parsed links.
         """
 
-        # Retrieve the content
-        try:
-            html_document = self._fetcher.retrieve()
-        except FetcherError as error:
-            raise HtmlParserError("Cannot retrieve content.") from error
-        else:
-            # Parses the content and handles decoding of bytes automatically
-            parser = bs4.BeautifulSoup(html_document, "html.parser")
+        # Parses the content and handles decoding of bytes automatically
+        parser = bs4.BeautifulSoup(self._html_document, "html.parser")
 
-            # Determine all links
-            retrieved_links = list()
-            links = parser.find_all("a")
-            for tag in links:
-                link = tag.get("href", None)
-                if not link is None:
-                    retrieved_links.append(link)
-            return retrieved_links
+        # Determine all links
+        retrieved_links = list()
+        links = parser.find_all("a")
+        for tag in links:
+            link = tag.get("href", None)
+            if link is not None:
+                retrieved_links.append(link)
+        return retrieved_links
 
 
 class HtmlParserError(Exception):

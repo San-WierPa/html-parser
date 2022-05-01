@@ -72,6 +72,7 @@ You can test a large portion of code but:
 + Long execution times as setting up the environment might take time and many components and external services are involved.
 + Test results are often unreliable as they depend on many additional factors.
 + `self._*` means stored internally
++ pytest can fully handle unittest classes
 
 ### Parametrization
 
@@ -101,3 +102,7 @@ You can test a large portion of code but:
 + Want to mock it, in order to isolate the test! We dont want to test the
   fetcher, but the parser. So, basically cutting out all what we do not want
   to test at this moment.
+
+## Code coverage
+
++ Basically a metric.

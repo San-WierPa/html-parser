@@ -1,8 +1,6 @@
 """
 Defines the Fetcher interface which is used to retrieve the content of documents from a given path.
 It aims to support a wide range of different protocols (e.g., HTTP, local file).
-
-@author: schlauch
 """
 
 
@@ -38,7 +36,7 @@ class Fetcher:
 
 
 class LocalFileFetcher(Fetcher):
-    """ Retrieves content from a local file. """
+    """Retrieves content from a local file."""
 
     def retrieve(self):
         try:
@@ -49,7 +47,7 @@ class LocalFileFetcher(Fetcher):
 
 
 class HttpFetcher(Fetcher):
-    """ Retrieves content via HTTP. """
+    """Retrieves content via HTTP."""
 
     def retrieve(self):
         try:

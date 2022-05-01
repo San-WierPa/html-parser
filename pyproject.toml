@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "html-parser"
+version = "1.0.0"
+description = "The HTML parser tool is used to demonstrate various aspects of Python testing."
+license = "MIT"
+authors = ["Tobias Schlauch <tobias.schlauch@dlr.de>"]
+readme = "README.md"
+packages = [
+    {include = "html_parser", from = "."},
+]
+
+[tool.poetry.scripts]
+html-parser = "html_parser.main:main"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+beautifulsoup4 = "^4.9.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.1.1"
+pytest-cov = "^2.10.1"
+coverage = "^5.3"
+pytest-httpserver = "^0.3.5"
+black = "^20.8b"
+flake8 = "^3.8.4"
+reuse = "^0.11.1"
+
+[tool.black]
+line-length = 120
+
+[tool.coverage.run]
+branch = true
+omit = [".venv*"]
+
+[tool.coverage.report]
+omit = ["*/tests/*"]
+
+[tool.coverage.html]
+directory = "build/htmlcov"
+
+[tool.coverage.xml]
+output = "build/coverage.xml"
+
+[tool.pytest.ini_options]
+junit_family = "xunit2"
+markers = """
+    medium: marks slower medium tests (deselect with '-m "not medium"')
+    large: marks slower large tests (deselect with '-m "not large"')
+"""
